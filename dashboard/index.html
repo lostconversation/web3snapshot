@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Web3 Snapshot - Dashboard</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200;400;600&display=swap');
+  </style>
+</head>
+
+<body>
+
+  <div id="header">
+    <div class="above">👉 info 👈</div>
+    <div id="headCont" style="position: relative; pointer-events: none;">
+      <img id="logoIconClick" src="../flash.svg" style="display: none"></img>
+      <div class="logoIcon"></div>
+      <canvas id="bgHead"></canvas>
+      <p class="subtitle">clever tools for framing<br>the future of web technology
+      </p>
+      <div class="dropdown">
+        <div class="dropbtn">🎛️ Dashboard <span class="flip">🎛️</span></div>
+        <div class="dropdown-content">
+          <a href="../infographics">📡 Infographics <span class="flip">📡</span></a>
+          <a href="../timelines">⏳ Timelines ⏳</a>
+          <div class="comingSoon"><a href="#"> 📋 Glossary 📋</a></div>
+          <div class="comingSoon"><a href="#"> ⛓ Links <span class="flip">⛓</span></a></div>
+        </div>
+      </div>
+      <div id="empty"></div>
+      <p class="subtitle faint">a real-time snapshot of crypto markets</p>
+    </div>
+    <div class="menu">
+      <button class="btn1 selected">Prices</button>
+      <button class="btn2">Tokenomics</button>
+      <!-- <button class="btn3">Self Custody</button> -->
+      <!-- <button class="btn4">AI</button> -->
+      <!-- <button class="btn5">Crypto</button>
+      <button class="btn6">Crypto</button>
+      <button class="btn7">Crypto</button>
+      <button class="btn8">Crypto</button> -->
+    </div>
+  </div>
+
+  <div id="contImg2" class="fullFrame">
+    <div class="contImg1">
+      <img class="contImg">
+    </div>
+
+  </div>
+  </div>
+  <iframe class="footerFrame" src="../footer.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+    onload="" allowtransparency="false"></iframe>
+  <div id="navBar">
+    <div id="logoSmall"></div>
+    <button id="topBtn">&#9650;</button>
+  </div>
+  <script src="../bg.js"></script>
+  <script>
+
+    const containerMenu = document.querySelector('.menu');
+    const buttons = document.querySelectorAll('.btn1, .btn2, .btn3, .btn4, .btn5');
+    const folders = ['dashboard_P', 'dashboard_S', 'web', 'ai', 'crypto'];
+
+
+    function changeLink(p) {
+      window.location.href = "../" + p;
+    }
+
+    const updateEvents = (file) => {
+      fileName = './img/' + file + '.jpg'
+      document.querySelector(".contImg").src = fileName;
+    }
+
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+
+        const file = button.classList.contains('btn1') ? folders[0] :
+          button.classList.contains('btn2') ? folders[1] :
+            button.classList.contains('btn3') ? folders[2] :
+              button.classList.contains('btn4') ? folders[3] :
+                folders[4];
+
+        // Remove the "selected" class from all buttons
+        for (const btn of buttons) {
+          btn.classList.remove('selected');
+        }
+
+        // Add the "selected" class to the clicked button
+        button.classList.add('selected');
+        updateEvents(file);
+      });
+    }
+
+    // /////////////////////////////////////////////////////////////////////////////////////////
+
+    updateEvents(folders[0]); // Run the function at page load
+  // const buttons = document.querySelectorAll('button');
+
+
+  </script>
+  <script src="../index.js"></script>
+</body>
+
+</html>
