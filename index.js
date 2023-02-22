@@ -90,14 +90,14 @@ window.addEventListener('resize', function () {
 
 window.addEventListener('scroll', function () {
   if (window.scrollY > 160) {
-    document.querySelector('#navBar').style.top = '0';
+    // document.querySelector('#navBar').style.top = '0';
     // document.querySelector('#navBar').style.padding = '0';
     // document.querySelector('#navBar').style.backgroundColor = 'rgba(0, 0, 0, 0.7');
     document.querySelector('#navBar').style.pointerEvents = 'all';
-    // document.querySelector('#navBar').classList.remove('navBarTop');
+    document.querySelector('#navBar').classList.remove('navBarTop');
   } else {
-    // document.querySelector('#navBar').classList.add('navBarTop');
-    document.querySelector('#navBar').style.top = '-100px';
+    document.querySelector('#navBar').classList.add('navBarTop');
+    // document.querySelector('#navBar').style.top = '-100px';
     // document.querySelector('#navBar').style.padding = '100px  0';
     // document.querySelector('#navBar').style.backgroundColor = 'rgba(0, 0, 0, 0)';
     document.querySelector('#navBar').style.pointerEvents = 'none';

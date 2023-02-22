@@ -2,158 +2,158 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="../style.css" />
-  <!-- <link rel="stylesheet" type="text/css" href="../dropdown.css" /> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <title>Web3 Snapshot - Infographics</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200;400;600&display=swap');
-  </style>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="../dropdown.css" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Web3 Snapshot - Infographics</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200;400;600&display=swap');
+    </style>
 </head>
 
 <body>
-  <div id="header">
-    <div class="above">👉 info 👈</div>
-    <div id="headCont" style="position: relative; pointer-events: none;">
-      <img id="logoIconClick" src="../flash.svg" style="display: none"></img>
-      <div class="logoIcon"></div>
-      <canvas id="bgHead"></canvas>
-      <p class="subtitle">clever tools for framing<br>the future of web technology</p>
-      <div class="dropdown">
-        <div class="dropbtn">📡 Infographics <span class="flip">📡</span></div>
-        <div class="dropdown-content">
-          <a href="../dashboard"> 🎛️ Dashboard <span class="flip">🎛️</span></a>
-          <a href="../timelines">⏳ Timelines ⏳</a>
-          <div class="comingSoon"><a href="#"> 📋 Glossary 📋</a></div>
-          <div class="comingSoon"><a href="#"> ⛓ Links <span class="flip">⛓</span></a></div>
-        </div>
-      </div>
-      <div id="empty"></div>
-      <p class="subtitle faint">a visual snapshot of some key concepts</p>
-    </div>
+    <div id="header">
+        <div class="above">👉 info 👈</div>
+        <div id="headCont" style="position: relative; pointer-events: none;">
+            <img id="logoIconClick" src="../flash.svg" style="display: none"></img>
+            <div class="logoIcon"></div>
+            <canvas id="bgHead"></canvas>
 
-    <div class="menu">
-      <button class="btn1 selected">Intro</button>
-      <button class="btn2">Web 1-2-3</button>
-      <button class="btn3">Business</button>
-      <button class="btn4">Crypto</button>
-      <button class="btn5">Self-Custody</button>
-      <!-- <button class="btn6">Crypto</button>
+            <div class="dropdown">
+                <div class="dropbtn">📡 Infographics <span class="flip">📡</span></div>
+                <div class="dropdown-content">
+                    <a href="../dashboard"> 🎛️ Dashboard <span class="flip">🎛️</span></a>
+                    <a href="../timelines">⏳ Timelines ⏳</a>
+                    <div class="comingSoon"><a href="#"> 📋 Glossary 📋</a></div>
+                    <div class="comingSoon"><a href="#"> ⛓ Links <span class="flip">⛓</span></a></div>
+                </div>
+            </div>
+            <div id="empty"></div>
+            <p class="subtitle faint">a visual snapshot of some key concepts</p>
+        </div>
+
+        <div class="menu">
+            <button class="btn1 selected">Intro</button>
+            <button class="btn2">Web 1-2-3</button>
+            <button class="btn3">Business</button>
+            <button class="btn4">Crypto</button>
+            <button class="btn5">Self-Custody</button>
+            <!-- <button class="btn6">Crypto</button>
     <button class="btn7">Crypto</button>
     <button class="btn8">Crypto</button> -->
+        </div>
     </div>
-  </div>
 
-  <div id="contImg2">
-    <div class="contImg1">
-      <img class="contImg" />
+    <div id="contImg2">
+        <div class="contImg1">
+            <img class="contImg" />
+        </div>
+        <button class="btnNext" onclick="updateEventsNext()">Next</button>
     </div>
-    <button class="btnNext" onclick="updateEventsNext()">Next</button>
-  </div>
-  </div>
-  <iframe class="footerFrame" src="../footer.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
-    onload="" allowtransparency="false"></iframe>
-  <div id="navBar">
-    <div id="logoSmall"></div>
-
-    <button id="topBtn">&#9650;</button>
-  </div>
+    </div>
+    <iframe class="footerFrame" src="../footer.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+        onload="" allowtransparency="false"></iframe>
+    <div id="navBar">
+        <div id="logoSmall"></div>
+        <p class="subtitle subLogo">clever tools for framing<br>the future of web technology</p>
+        <button id="topBtn">&#9650;</button>
+    </div>
 
 
 
 
-  <script src="../bg.js"></script>
+    <script src="../bg.js"></script>
 
-  <script>
+    <script>
 
-    const numFolders = 5;
-    const containerMenu = document.querySelector('.menu');
-    const buttons = document.querySelectorAll('.btn1, .btn2, .btn3, .btn4, .btn5');
-    const folders = ['infog_1', 'infog_2', 'infog_3', 'infog_4', 'infog_5'];
-
-
-    function changeLink(p) {
-      // console.log("awef")
-      window.location.href = "../" + p;
-    }
-
-    const updateEvents = (file) => {
-      document.querySelector(".contImg").src = './img/infog_0.jpg';
-      fileName = './img/' + file + '.jpg'
-      setTimeout(function doSomethingLater() {
-        document.querySelector(".contImg").src = fileName;
-      }, 100);
-
-    }
-
-    let nextFolder = 1;
-    const scrollStop = 250;
-
-    function updateEventsNext() {
-      window.scrollTo(0, scrollStop);
-      prevFolder = nextFolder
-      nextFolder += 1;
-      if (nextFolder == (numFolders + 1)) { nextFolder = 1 }
-      // console.log(prevFolder, nextFolder)
-      setTimeout(() => {
-        document.getElementsByClassName('btn' + (prevFolder))[0].classList.remove('selected')
-        document.getElementsByClassName('btn' + nextFolder)[0].classList.add('selected')
-        updateEvents(folders[nextFolder - 1])
-      }, 800);
+        const numFolders = 5;
+        const containerMenu = document.querySelector('.menu');
+        const buttons = document.querySelectorAll('.btn1, .btn2, .btn3, .btn4, .btn5');
+        const folders = ['infog_1', 'infog_2', 'infog_3', 'infog_4', 'infog_5'];
 
 
-    }
-
-    for (const button of buttons) {
-      button.addEventListener('click', () => {
-
-        const file = button.classList.contains('btn1') ? 0 :
-          button.classList.contains('btn2') ? 1 :
-            button.classList.contains('btn3') ? 2 :
-              button.classList.contains('btn4') ? 3 :
-                4;
-
-        nextFolder = file + 1;
-        window.scrollTo(0, scrollStop);
-        // console.log(nextFolder)
-        // Remove the "selected" class from all buttons
-        for (const btn of buttons) {
-          btn.classList.remove('selected');
+        function changeLink(p) {
+            // console.log("awef")
+            window.location.href = "../" + p;
         }
 
-        // Add the "selected" class to the clicked button
-        button.classList.add('selected');
-        updateEvents(folders[file]);
+        const updateEvents = (file) => {
+            document.querySelector(".contImg").src = './img/infog_0.jpg';
+            fileName = './img/' + file + '.jpg'
+            setTimeout(function doSomethingLater() {
+                document.querySelector(".contImg").src = fileName;
+            }, 100);
 
-      });
-    }
+        }
 
-    function preloadImage() {
-      var img0 = new Image();
-      var img2 = new Image();
-      var img3 = new Image();
-      var img4 = new Image();
-      var img5 = new Image();
-      img0.src = "./img/infog_0.jpg";
-      img2.src = "./img/infog_2.jpg";
-      img3.src = "./img/infog_3.jpg";
-      img4.src = "./img/infog_4.jpg";
-      img5.src = "./img/infog_5.jpg";
-    }
-    setTimeout(() => {
-      preloadImage();
-    }, 2000);
+        let nextFolder = 1;
+        const scrollStop = 250;
+
+        function updateEventsNext() {
+            window.scrollTo(0, scrollStop);
+            prevFolder = nextFolder
+            nextFolder += 1;
+            if (nextFolder == (numFolders + 1)) { nextFolder = 1 }
+            // console.log(prevFolder, nextFolder)
+            setTimeout(() => {
+                document.getElementsByClassName('btn' + (prevFolder))[0].classList.remove('selected')
+                document.getElementsByClassName('btn' + nextFolder)[0].classList.add('selected')
+                updateEvents(folders[nextFolder - 1])
+            }, 800);
 
 
-    // /////////////////////////////////////////////////////////////////////////////////////////
+        }
 
-    updateEvents(folders[0]); // Run the function at page load
+        for (const button of buttons) {
+            button.addEventListener('click', () => {
+
+                const file = button.classList.contains('btn1') ? 0 :
+                    button.classList.contains('btn2') ? 1 :
+                        button.classList.contains('btn3') ? 2 :
+                            button.classList.contains('btn4') ? 3 :
+                                4;
+
+                nextFolder = file + 1;
+                window.scrollTo(0, scrollStop);
+                // console.log(nextFolder)
+                // Remove the "selected" class from all buttons
+                for (const btn of buttons) {
+                    btn.classList.remove('selected');
+                }
+
+                // Add the "selected" class to the clicked button
+                button.classList.add('selected');
+                updateEvents(folders[file]);
+
+            });
+        }
+
+        function preloadImage() {
+            var img0 = new Image();
+            var img2 = new Image();
+            var img3 = new Image();
+            var img4 = new Image();
+            var img5 = new Image();
+            img0.src = "./img/infog_0.jpg";
+            img2.src = "./img/infog_2.jpg";
+            img3.src = "./img/infog_3.jpg";
+            img4.src = "./img/infog_4.jpg";
+            img5.src = "./img/infog_5.jpg";
+        }
+        setTimeout(() => {
+            preloadImage();
+        }, 2000);
+
+
+        // /////////////////////////////////////////////////////////////////////////////////////////
+
+        updateEvents(folders[0]); // Run the function at page load
   // const buttons = document.querySelectorAll('button');
 
 
-  </script>
-  <script src="../index.js"></script>
+    </script>
+    <script src="../index.js"></script>
 
 </body>
 

@@ -75,9 +75,9 @@ h2 {
   text-align: center;
   color: #fff;
 }
-/* .subLogo{
+.subLogo{
   opacity: 1;
-} */
+}
 
 
 
@@ -263,7 +263,7 @@ img{
 
 #navBar{
   position: fixed;
-  top: -100px;
+  top: 0px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   height: 70px;
@@ -273,17 +273,15 @@ img{
   pointer-events: all;
   z-index: 55;
   cursor: pointer;
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
+  
 }
-/* .navBarTop{
+.navBarTop{
   padding: 100px 0 !important;
   background-color: rgba(0, 0, 0, 0.1) !important;
   -webkit-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
-} */
+}
 
 #topBtn{
   position: absolute; 
