@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Web3 Snapshot - Timelines</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200;400;600&display=swap');
+  </style>
+</head>
+
+<body>
+
+  <div id="header">
+    <div class="above">👉 info 👈</div>
+    <div id="headCont" style="position: relative; pointer-events: none;">
+      <img id="logoIconClick" src="../flash.svg" style="display: none"></img>
+      <div class="logoIcon"></div>
+      <canvas id="bgHead"></canvas>
+      <p class="subtitle">clever tools for framing<br>the future of web technology
+      </p>
+      <div class="dropdown">
+        <div class="dropbtn">⏳ Timelines ⏳</div>
+        <div class="dropdown-content">
+          <a href="../infographics">📡 Infographics <span class="flip">📡</span></a>
+          <a href="../dashboard">🎛️ Dashboard <span class="flip">🎛️</span></a>
+          <div class="comingSoon"><a href="#"> 📋 Glossary 📋</a></div>
+          <div class="comingSoon"><a href="#"> ⛓ Links <span class="flip">⛓</span></a></div>
+        </div>
+      </div>
+      <div id="empty"></div>
+      <p class="subtitle faint">a historical snapshot of innovation</p>
+
+    </div>
+    <div class="menu">
+      <button class="btn1">Early Tech</button>
+      <button class="btn2">Money</button>
+      <button class="btn3 selected">Web</button>
+      <!-- <button class="btn4">Decentralization</button> -->
+      <button class="btn4">Crypto</button>
+      <button class="btn5">AI</button>
+      <!-- <!-- <button class="btn7">Crypto</button> -->
+    </div>
+  </div>
+
+  <div id="timeline">
+
+    <template id="event-template">
+      <div class="event">
+        <div class="dot"></div>
+        <div class="content">
+          <div class="photo"><img></div>
+          <h2 class="title"></h2>
+          <p class="year"></p>
+          <p class="description"></p>
+        </div>
+      </div>
+    </template>
+
+    <!-- Add the template to the events container -->
+    <div class="events">
+
+    </div>
+    <div class="line"></div>
+    <div class="dot dotBot"></div>
+  </div>
+  <button class="btnNext" onclick="updateEventsNext()">Next Timeline</button>
+  <iframe class="footerFrame" src="../footer.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+    onload="" allowtransparency="false"></iframe>
+  <div id="navBar">
+    <div id="logoSmall"></div>
+    <button id="topBtn">&#9650;</button>
+  </div>
+  <script src="../bg.js"></script>
+  <script>
+    const numFolders = 5;
+    const template = document.querySelector("#event-template");
+    const eventsContainer = document.querySelector(".events");
+    const containerMenu = document.querySelector('.menu');
+    const buttons = document.querySelectorAll('.btn1, .btn2, .btn3, .btn4, .btn5, .btn6');
+    const folders = ['early', 'money', 'web', 'crypto', 'ai'];
+
+
+    function changeLink(p) {
+      window.location.href = "../" + p;
+    }
+
+    const updateEvents = (file) => {
+      fileName = './content_' + file + '.js'
+      import(fileName)
+        .then(module => {
+          // Clear the events container
+          eventsContainer.innerHTML = "";
+
+          // Loop through the data array and create event elements for each item
+          for (let i = 0; i < module.default.length; i++) {
+            const event = module.default[i];
+            // console.log(folders)
+            // Create a new event element from the template
+            const eventElement = template.content.cloneNode(true);
+
+            // Update the elements with the data from the content.js file
+            eventElement.querySelector(".title").textContent = event.title;
+            eventElement.querySelector(".year").textContent = event.year;
+            eventElement.querySelector(".description").innerHTML = event.description;
+            eventElement.querySelector(".photo img").src = "./img_" + file + "/" + event.img;
+
+            // Add the appropriate classes to the event element based on its position (left or right)
+            if (i % 2 === 0) {
+              eventElement.querySelector(".event").classList.add("left");
+              eventElement.querySelector(".dot").classList.add("dotL");
+              eventElement.querySelector(".content").classList.add("contentL");
+              eventElement.querySelector(".photo").classList.add("photoL");
+            } else {
+              eventElement.querySelector(".event").classList.add("right");
+              eventElement.querySelector(".dot").classList.add("dotR");
+              eventElement.querySelector(".content").classList.add("contentR");
+              eventElement.querySelector(".photo").classList.add("photoR");
+            }
+
+            if (!event.img) {
+              eventElement.querySelector(".photo").style.display = "none";
+            }
+
+            // Add the event element to the events container
+            eventsContainer.appendChild(eventElement);
+          }
+        });
+
+
+    }
+
+    let nextFolder = 3;
+    function updateEventsNext() {
+      window.scrollTo(0, 250);
+      prevFolder = nextFolder
+      nextFolder += 1;
+      if (nextFolder == (numFolders + 1)) { nextFolder = 1 }
+      // console.log(prevFolder, nextFolder)
+      setTimeout(function doSomethingLater() {
+        document.getElementsByClassName('btn' + (prevFolder))[0].classList.remove('selected')
+        document.getElementsByClassName('btn' + nextFolder)[0].classList.add('selected')
+        updateEvents(folders[nextFolder - 1])
+      }, 800);
+
+
+    }
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+
+        const file = button.classList.contains('btn1') ? 0 :
+          button.classList.contains('btn2') ? 1 :
+            button.classList.contains('btn3') ? 2 :
+              button.classList.contains('btn4') ? 3 :
+                4;
+
+        nextFolder = file + 1;
+        // console.log(file)
+        // Remove the "selected" class from all buttons
+        for (const btn of buttons) {
+          btn.classList.remove('selected');
+        }
+
+        // Add the "selected" class to the clicked button
+        button.classList.add('selected');
+        updateEvents(folders[file]);
+      });
+    }
+
+
+    // /////////////////////////////////////////////////////////////////////////////////////////
+
+    updateEvents(folders[2]); // Run the function at page load
+    // const buttons = document.querySelectorAll('button');
+
+
+
+  </script>
+  <script src="../index.js"></script>
+</body>
+
+</html>
