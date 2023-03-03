@@ -126,19 +126,19 @@ button:hover{
 }
 
 .above{
-  display: none;
+  /* display: none; */
   position: absolute;
   /* background-color: rgba( 55,55,55,.5); */
   padding: 5px 0 10px;
   margin: -5px 0;
-  left: calc(50% - 100px);
-  width: 200px;
+  left: calc(50% - 150px);
+  width: 300px;
   font-size: 12px;
   text-align: center;
   letter-spacing: 2px;
   color: var(--text1-color);
-  pointer-events: all;
-  cursor: pointer;
+  pointer-events: none;
+  /* cursor: pointer; */
   user-select: none;
   
   
