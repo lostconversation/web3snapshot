@@ -2,16 +2,117 @@
 <html>
 
 <head>
+  <meta property='og:title' content='Web3 Snapshot' />
+  <meta property='og:image' content='https://web3snapshot.io/thumbnail.jpg' />
+  <meta property='og:description' content='Clever tools for framing the future of web technology' />
+  <meta property='og:url' content='web3snapshot.io' />
+  <meta property='og:image:width' content='1200' />
+  <meta property='og:image:height' content='627' />
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WK34DVZ');</script>
+  <!-- End Google Tag Manager -->
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="icon" type="image/png" href="https://www.web3snapshot.io/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=./infographics/index.html" />
   <meta charset="UTF-8">
-  <title>Web3 snapshot v0</title>
+  <title>Web3 Snapshot</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200;400;600&display=swap');
+  </style>
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK34DVZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="header">
+    <div class="above">🚧 work in progress 🚧</div>
+    <div id="headCont" style="position: relative; pointer-events: none;">
+
+      <!-- <div class="logoIcon"></div> -->
+      <canvas id="bgHead"></canvas>
+      <div class="logoIcon"></div>
+      <div id='mainTitle1' class="maintitle"> 📸 📸 📸<br>CLEVER TOOLS FOR <span class="highlight">FRAMING</span><br>THE
+        FUTURE
+        OF <span class="highlight">WEB TECHNOLOGY</span><br>📸 📸 📸</div>
+      <div id='mainTitle2' class="maintitle"> 📸 📸 📸<br>CLEVER TOOLS <br>FOR <span
+          class="highlight">FRAMING</span><br>THE
+        FUTURE
+        OF <br><span class="highlight">WEB TECHNOLOGY</span><br>📸 📸 📸</div>
+    </div>
+
+    <h2>👇 Pick one <span class="flip">👇</span></h2>
+  </div>
+
+  <div class="homeBtns">
+    <div class="homeBtn homeBtn1">
+      <h2> 🎓 Academy <span class="flip"> 🎓 </span></h2>
+      <p class="subtitle faint">visual snapshot of key concepts</p>
+    </div>
+    <div class="homeBtn homeBtn2">
+      <h2><span class="flip">💸</span> Dashboard 💸</h2>
+      <p class="subtitle faint">real-time snapshot of crypto markets</p>
+    </div>
+    <div class="homeBtn homeBtn3">
+      <h2>⏳ Timelines ⏳</h2>
+      <p class="subtitle faint">historical snapshot of innovation</p>
+    </div>
+    <div class="homeBtn comingSoon">
+      <h2>📋 Glossary 📋</h2>
+      <p class="subtitle faint">coming soon</p>
+    </div>
+    <div class="homeBtn comingSoon">
+      <h2>⛓ Links ⛓</h2>
+      <p class="subtitle faint">coming soon</p>
+    </div>
+    <div class="homeBtn comingSoon">
+      <h2>🎙 News <span class="flip">🎙</span></h2>
+      <p class="subtitle faint">coming soon</p>
+    </div>
+    <div class="homeBtn comingSoon">
+      <h2><span class="flip">📐</span> Trilemmas 📐</h2>
+      <p class="subtitle faint">coming soon</p>
+    </div>
+
+  </div>
+
+  </div>
+  <iframe class="footerFrame" src="footer.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+    onload="" allowtransparency="false"></iframe>
+  <button id="topBtn">&#9650;</button>
+  <iframe id="aboutFrame" class="aboutFrame" src="about.html" frameborder="0" marginwidth="0" marginheight="0"
+    scrolling="no" onload="" allowtransparency="false"></iframe>
+  <img id="logoIconClick" src="./img/flash.svg" style="display: none"></img>
 
 
+  <script src="bg.js"></script>
+
+  <script>
+
+    document.addEventListener('click', function (event) {
+      // console.log('2');
+      // let dropdowns = document.getElementsByClassName('dropdown');
+      shootSvg(event);
+      if (event.target.classList.contains('homeBtn1')) {
+        window.open('./academy', '_self');
+      } else if (event.target.classList.contains('homeBtn2')) {
+        window.open('./dashboard', '_self');
+      } else if (event.target.classList.contains('homeBtn3')) {
+        window.open('./timelines', '_self');
+      }
+    });
+
+  </script>
+  <!-- <script src="../index.js"></script> -->
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-756JPLG6F0"></script>
   <script>

@@ -15,11 +15,16 @@
 
 <body>
     <div class="footer">
-        <div class="footerText">
-            👉 info coming soon 👈
+        <div class="footerText" onclick="openAbout()">
+            👉 about 👈
         </div>
     </div>
-
+    <script>
+        function openAbout() {
+            top.document.getElementById('aboutFrame').style.display = 'block';
+            top.document.body.classList.add('noScroll');
+        }
+    </script>
 
 </body>
 

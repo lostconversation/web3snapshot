@@ -42,12 +42,17 @@ function balanceButtons(buttons, container) {
     for (const button of line) {
       button.style.margin = '5px';
       div.appendChild(button);
+      // button.style.display = 'none';
+      if (button.classList.contains('selected')) {
+        // console.log('asdf');
+      }
     }
     container.appendChild(div);
   }
 }
-
-balanceButtons(buttons, containerMenu);
+if (needOrder == 1) {
+  balanceButtons(buttons, containerMenu);
+}
 
 // let openMenu = 0;
 
@@ -83,112 +88,64 @@ balanceButtons(buttons, containerMenu);
 
 window.addEventListener('resize', function () {
   // balanceLines(subt);
-  balanceButtons(buttons, containerMenu);
+  if (needOrder == 1) {
+    balanceButtons(buttons, containerMenu);
+  }
   // balanceButtons(buttonsBottom, containerMenuBottom);
   // balanceButtons(buttonsMain, containerMenuMain);
 });
 
 window.addEventListener('scroll', function () {
   if (window.scrollY > 160) {
-    document.querySelector('#navBar').style.top = '0';
+    document.querySelector('#topBtn').style.top = '20px';
+    // document.querySelector('#navBar').style.top = '0'; THIS WAS ON
     // document.querySelector('#navBar').style.padding = '0';
     // document.querySelector('#navBar').style.backgroundColor = 'rgba(0, 0, 0, 0.7');
-    document.querySelector('#navBar').style.pointerEvents = 'all';
+    // document.querySelector('#navBar').style.pointerEvents = 'all';  THIS WAS ON
     // document.querySelector('#navBar').classList.remove('navBarTop');
   } else {
+    document.querySelector('#topBtn').style.top = '-50px';
     // document.querySelector('#navBar').classList.add('navBarTop');
-    document.querySelector('#navBar').style.top = '-100px';
+    // document.querySelector('#navBar').style.top = '-100px';  THIS WAS ON
     // document.querySelector('#navBar').style.padding = '100px  0';
     // document.querySelector('#navBar').style.backgroundColor = 'rgba(0, 0, 0, 0)';
-    document.querySelector('#navBar').style.pointerEvents = 'none';
+    //document.querySelector('#navBar').style.pointerEvents = 'none';  THIS WAS ON
   }
 });
 
-document.querySelector('#navBar').addEventListener('click', function () {
+document.querySelector('#topBtn').addEventListener('click', function () {
+  // window.open('../', '_self');
   window.scrollTo(0, 0);
   // console.log('ttt');
 });
 
+function openAbout() {
+  document.getElementById('aboutFrame').style.display = 'block';
+  document.body.classList.add('noScroll');
+}
+
 /////////////////////////////////////////////////////////////////////////////////////// dropdown
 
-const canvaz = document.body;
-const svg = document.getElementById('logoIconClick');
-
 document.addEventListener('click', function (event) {
-  console.log('2');
+  // console.log('1');
   let dropdowns = document.getElementsByClassName('dropdown');
   for (let i = 0; i < dropdowns.length; i++) {
     let dropdown = dropdowns[i];
-    if (
-      dropdown.contains(event.target) &&
-      dropdown.classList.toggle('active')
-    ) {
-      console.log('3');
-      // if()
-      document.getElementById('empty').style.display = 'block';
-      dropdown.classList.add('active');
+    if (event.target.id === 'logoSmall') {
+      // console.log('1');
+      dropdown.classList.toggle('active');
+      document.getElementById('empty').classList.toggle('active');
+    } else if (event.target.classList.contains('dropdown-content')) {
+      // console.log('3');
     } else {
-      console.log('4');
-      document.getElementById('empty').style.display = 'none';
       dropdown.classList.remove('active');
-      // console.log(dropdown.classList.contains('active'));
-      //// draw star
-      const rect = canvaz.getBoundingClientRect();
-      const x = event.clientX;
-      const y = event.clientY;
-      const newSvg = svg.cloneNode(true);
-      newSvg.style.left = x - 15 + 'px';
-      newSvg.style.top = y - 15 + 'px';
-      newSvg.style.display = 'block';
-      canvaz.appendChild(newSvg);
-      animateSvg(newSvg);
-      setTimeout(function doSomethingLater() {
-        canvaz.removeChild(newSvg);
-      }, 5000);
+      document.getElementById('empty').classList.remove('active');
     }
   }
+  if (document.getElementById('aboutFrame').style.display == 'block') {
+    // console.log('object');
+  }
+  shootSvg(event);
 });
 
-// var lastY = 0;
-// document.addEventListener('wheel', (event) => {
-//   console.log('object');
-// });
-
-function animateSvg(svgElement) {
-  // Generate a random vector that represents the movement direction
-  const angle = Math.random() * 2 * Math.PI;
-  const dx = Math.cos(angle) * 4;
-  const dy = Math.sin(angle) * 4;
-
-  // Animate the SVG element to move in the random direction
-  let x = parseFloat(svgElement.style.left);
-  let y = parseFloat(svgElement.style.top);
-  let reverseX = false;
-  let reverseY = false;
-  let size = 1;
-  const animateStep = () => {
-    if (x <= 0) {
-      x = 0;
-      reverseX = !reverseX;
-    } else if (x + size * svgElement.clientWidth >= canvaz.clientWidth) {
-      x = canvaz.clientWidth - size * svgElement.clientWidth;
-      reverseX = !reverseX;
-    }
-
-    if (y <= 0) {
-      y = 0;
-      reverseY = !reverseY;
-    } else if (y + size * svgElement.clientHeight >= canvaz.clientHeight) {
-      y = canvaz.clientHeight - size * svgElement.clientHeight;
-      reverseY = !reverseY;
-    }
-
-    x += reverseX ? -dx : dx;
-    y += reverseY ? -dy : dy;
-
-    svgElement.style.left = x + 'px';
-    svgElement.style.top = y + 'px';
-    requestAnimationFrame(animateStep);
-  };
-  animateStep();
-}
+/////////////////////////////////////////////////////////////////////////////////

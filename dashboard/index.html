@@ -2,6 +2,12 @@
 <html>
 
 <head>
+  <meta property='og:title' content='Web3 Snapshot' />
+  <meta property='og:image' content='https://web3snapshot.io/thumbnail.jpg' />
+  <meta property='og:description' content='Clever tools for framing the future of web technology' />
+  <meta property='og:url' content='web3snapshot.io' />
+  <meta property='og:image:width' content='1200' />
+  <meta property='og:image:height' content='627' />
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
@@ -13,6 +19,7 @@
     })(window, document, 'script', 'dataLayer', 'GTM-WK34DVZ');</script>
   <!-- End Google Tag Manager -->
   <link rel="stylesheet" type="text/css" href="../style.css" />
+  <link rel="icon" type="image/png" href="https://www.web3snapshot.io/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Web3 Snapshot - Dashboard</title>
@@ -21,6 +28,12 @@
 
     .contImg1 {
       background-color: #141414 !important;
+      background-image: none;
+
+    }
+
+    #contImg2 {
+      opacity: 1;
     }
   </style>
 </head>
@@ -31,34 +44,40 @@
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <div id="header">
-    <div class="above">🚧 work in progress 🚧</div>
-    <div id="headCont" style="position: relative; pointer-events: none;">
-      <img id="logoIconClick" src="../flash.svg" style="display: none"></img>
-      <div class="logoIcon"></div>
-      <canvas id="bgHead"></canvas>
-      <p class="subtitle">clever tools for framing<br>the future of web technology
-      </p>
+    <div id="navBar">
       <div class="dropdown">
-        <div class="dropbtn">🎛️ Dashboard <span class="flip">🎛️</span></div>
+        <div class="dropbtn">
+          <div id="logoSmall"></div>
+        </div>
         <div class="dropdown-content">
-          <a href="../infographics">📡 Infographics <span class="flip">📡</span></a>
+          <a href="../academy"> 🎓 Academy <span class="flip"> 🎓 </span></a>
+          <div class="currentPage"><span class="flip">💸</span> Dashboard 💸</span>
+          </div>
           <a href="../timelines">⏳ Timelines ⏳</a>
           <div class="comingSoon"><a href="#"> 📋 Glossary 📋</a></div>
           <div class="comingSoon"><a href="#"> ⛓ Links <span class="flip">⛓</span></a></div>
+          <div class="comingSoon"><a href="#"> 🎙 News <span class="flip">🎙</span></a></div>
+          <div class="comingSoon"><a href="#"> <span class="flip">📐</span> Trilemmas 📐</a></div><br>
+          <div class="subtitle">CLEVER TOOLS FOR <span class="highlight">FRAMING</span><br>THE FUTURE
+            OF <span class="highlight">WEB TECHNOLOGY</span></div>
+          <div class="aboutClass" onclick="openAbout()">👉 About 👈</div>
         </div>
       </div>
       <div id="empty"></div>
-      <p class="subtitle faint">a real-time snapshot of crypto markets</p>
     </div>
+    <div class="above">🚧 work in progress 🚧</div>
+    <div id="headCont" style="position: relative; pointer-events: none;">
+      <img id="logoIconClick" src="../img/flash.svg" style="display: none"></img>
+      <canvas id="bgHead"></canvas>
+      <div class="pageTitle">
+        <h2><span class="flip">💸</span> Dashboard 💸</h2>
+        <p class="subtitle faint">real-time snapshot of crypto markets</p>
+      </div>
+    </div>
+
     <div class="menu">
       <button class="btn1 selected">Prices</button>
       <button class="btn2">Tokenomics</button>
-      <!-- <button class="btn3">Self Custody</button> -->
-      <!-- <button class="btn4">AI</button> -->
-      <!-- <button class="btn5">Crypto</button>
-      <button class="btn6">Crypto</button>
-      <button class="btn7">Crypto</button>
-      <button class="btn8">Crypto</button> -->
     </div>
   </div>
 
@@ -71,13 +90,12 @@
   </div>
   <iframe class="footerFrame" src="../footer.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
     onload="" allowtransparency="false"></iframe>
-  <div id="navBar">
-    <div id="logoSmall"></div>
-    <button id="topBtn">&#9650;</button>
-  </div>
+  <button id="topBtn">&#9650;</button>
+  <iframe id="aboutFrame" class="aboutFrame" src="../about.html" frameborder="0" marginwidth="0" marginheight="0"
+    scrolling="no" onload="" allowtransparency="false"></iframe>
   <script src="../bg.js"></script>
   <script>
-
+    const needOrder = 0;
     const containerMenu = document.querySelector('.menu');
     const buttons = document.querySelectorAll('.btn1, .btn2, .btn3, .btn4, .btn5');
     const folders = ['dashboard_P', 'dashboard_S', 'web', 'ai', 'crypto'];

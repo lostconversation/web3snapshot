@@ -136,3 +136,66 @@ function animate() {
 requestAnimationFrame(animate);
 
 ///////////////////////////////////////////////////////////////////////// CLICK
+
+const canvaz = document.body;
+const svg = document.getElementById('logoIconClick');
+
+function shootSvg(event) {
+  const rect = canvaz.getBoundingClientRect();
+  const yH = window.scrollY;
+  const x = event.clientX;
+  const y = event.clientY;
+  // console.log(window.innerWidth);
+  const newSvg = svg.cloneNode(true);
+  newSvg.style.left = x - 15 + 'px';
+  newSvg.style.top = y + yH - 15 + 'px';
+  newSvg.style.display = 'block';
+  canvaz.appendChild(newSvg);
+  animateSvg(newSvg);
+  setTimeout(function doSomethingLater() {
+    canvaz.removeChild(newSvg);
+  }, 5000);
+}
+// var lastY = 0;
+// document.addEventListener('wheel', (event) => {
+//   console.log('object');
+// });
+
+function animateSvg(svgElement) {
+  // Generate a random vector that represents the movement direction
+  const angle = Math.random() * 2 * Math.PI;
+  const dx = Math.cos(angle) * 4;
+  const dy = Math.sin(angle) * 4;
+
+  // Animate the SVG element to move in the random direction
+  let x = parseFloat(svgElement.style.left);
+  let y = parseFloat(svgElement.style.top);
+  let reverseX = false;
+  let reverseY = false;
+  let size = 1;
+  const animateStep = () => {
+    if (x <= 0) {
+      x = 0;
+      reverseX = !reverseX;
+    } else if (x + size * svgElement.clientWidth >= window.innerWidth) {
+      x = window.innerWidth - size * svgElement.clientWidth;
+      reverseX = !reverseX;
+    }
+
+    if (y <= 0) {
+      y = 0;
+      reverseY = !reverseY;
+    } else if (y + size * svgElement.clientHeight >= canvaz.clientHeight) {
+      y = canvaz.clientHeight - size * svgElement.clientHeight;
+      reverseY = !reverseY;
+    }
+
+    x += reverseX ? -dx : dx;
+    y += reverseY ? -dy : dy;
+
+    svgElement.style.left = x + 'px';
+    svgElement.style.top = y + 'px';
+    requestAnimationFrame(animateStep);
+  };
+  animateStep();
+}
