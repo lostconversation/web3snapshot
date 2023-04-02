@@ -178,7 +178,7 @@ button:hover{
   width: 100%;
   z-index: -33;
   margin: auto -50% auto;
-  opacity: .2;
+  opacity: .1;
   height: 700px;
   pointer-events: all;
 }
@@ -268,6 +268,11 @@ canvas{
   width: 100%;
   min-height: 1000px;
 
+}
+.embedFrame{
+  width: calc(100% + 80px) !important;
+  margin: 0 0 10px -40px !important;
+  padding: 0;
 }
 
 img{
@@ -531,6 +536,10 @@ img{
     width: calc(100% - 10px);
     margin: 0;
   }
+  .embedFrame {
+    width: calc(100% + 10px) !important;
+    margin: 0 0 10px 0px !important;
+}
   
   .subtitle{
     font-size: 10px;
