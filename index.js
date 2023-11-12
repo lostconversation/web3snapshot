@@ -138,8 +138,10 @@ document.addEventListener('click', function (event) {
     } else if (event.target.classList.contains('dropdown-content')) {
       // console.log('3');
     } else {
-      dropdown.classList.remove('active');
-      document.getElementById('empty').classList.remove('active');
+      if (!document.getElementById('homeCheck')) {
+        dropdown.classList.remove('active');
+        document.getElementById('empty').classList.remove('active');
+      }
     }
   }
   if (document.getElementById('aboutFrame').style.display == 'block') {

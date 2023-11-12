@@ -7,30 +7,93 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
 
         object {
             margin: 0;
             padding: 0;
-            overflow: ;
-            height: 500px;
+            /* overflow: ; */
+            /* height: 200px; */
         }
     </style>
     <title>Embedded Content</title>
     <script>
         function resizeObject(obj) {
-            // var contentDocument = obj.contentDocument || obj.contentWindow.document;
+            //var contentDocument = obj.contentDocument || obj.contentWindow.document;
             // obj.style.height = contentDocument.body.scrollHeight + 'px';
             // console.log(obj.contentWindow.window)
             // obj.style.height = this.contentWindow.document.body.offsetHeight + 'px';
         }
+
+
+        function getHeightFrame() {
+            setTimeout(function doSomethingLater() {
+                const body = document.body;
+                const html = document.documentElement;
+                let height1 = html.offsetHeight
+                let height = Math.max(body.scrollHeight, html.scrollHeight);
+                console.log(height);
+            }, 500);
+        }
+
+        window.addEventListener('load', function (e) {
+            getHeightFrame();
+        }, false);
+
+
+        window.addEventListener('resize', function (e) {
+            getHeightFrame();
+        }, false);
+
+
+
+
+        // window.addEventListener('message', function (e) {
+        //     let iframe = document.querySelector("#child-iframe");
+        //     // message that was passed from iframe page
+        //     let message = e.data;
+        //     console.log(message)
+        //     iframe.style.height = message + 'px';
+        //     // iframe.style.width = message.width + 'px';
+        // }, false);
+
     </script>
 </head>
 
 <body>
-    <object type="text/html" data="https://web3snapshot.loxosceles.me/prices" style="width:100%; height:100%;"
-        onload="resizeObject(this)"></object>
+    <object id="child-iframe" type="text/html" data="https://web3snapshot.loxosceles.me/prices"
+        style="width:100%;"></object>
+    iaenf ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap49abnpw49tnuawp94bnape9nyuapei
+    rtnao4ubn0[e4b]iaenf
+    ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap
+    49abnpw49tnuawp94bnape9nyuapeirtnao4ubn0[e4b]iaenf
+    ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap49abnpw49tnuawp94bnape9nyu
+    apeirtnao4ubn0[e4b]iaenf
+    ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap49abnpw49tnuawp94bnape9nyua
+    peirtnao4ubn0[e4b]iaenf
+    ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap49abnpw4
+    9tnuawp94bnape9nyuapeirtnao4ubn0[e4b]iaenf
+    ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap49abnpw49tnuaw
+    p94bnape9nyuapeirtnao4ubn0[e4b]iaenf
+    ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap49abnpw49tnu
+    awp94bnape9nyuapeirtnao4ubn0[e4b]iaenf
+    ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap49abnpw49tnuawp94bnape9
+    nyuapeirtnao4ubn0[e4b]iaenf
+    ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap49abn
+    pw49tnuawp94bnape9nyuapeirtnao4ubn0[e4b]iaenf
+    ilaueh filaueh ilasehfilahsefil hasilefahlgh a;orgj o;aerg o;aije o;ajw44o;
+    ijaqw4ottjuq5p8u4ONUQOE84YBQ0893N9oun'p394b'p9ae4nt'pa984nb;p9awu4bn9pa84b9a8n4b'9an8w4bt'p9a8ne4t9puanb49ptunap49a
+    bnpw49tnuawp94bnape9nyuapeirtnao4ubn0[e4b]
 </body>
 
 </html>
