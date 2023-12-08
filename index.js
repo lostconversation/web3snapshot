@@ -96,7 +96,7 @@ window.addEventListener('resize', function () {
 });
 
 window.addEventListener('scroll', function () {
-  if (window.scrollY > 280) {
+  if (window.scrollY > 80) {
     document.querySelector('#topBtn').style.bottom = '10px';
     // document.querySelector('#navBar').style.top = '0'; THIS WAS ON
     // document.querySelector('#navBar').style.padding = '0';
@@ -121,7 +121,6 @@ document.querySelector('#topBtn').addEventListener('click', function () {
 
 function openAbout() {
   document.getElementById('aboutFrame').style.display = 'block';
-  document.body.classList.add('noScroll');
 }
 
 /////////////////////////////////////////////////////////////////////////////////////// dropdown
@@ -131,21 +130,26 @@ document.addEventListener('click', function (event) {
   let dropdowns = document.getElementsByClassName('dropdown');
   for (let i = 0; i < dropdowns.length; i++) {
     let dropdown = dropdowns[i];
-    if (event.target.id === 'logoSmall') {
-      // console.log('1');
+    if (event.target.id === 'menuuu') {
+      console.log('1');
       dropdown.classList.toggle('active');
       document.getElementById('empty').classList.toggle('active');
+      document.getElementById('menuuu').classList.toggle('hovver');
+      document.body.classList.add('noScroll');
     } else if (event.target.classList.contains('dropdown-content')) {
       // console.log('3');
     } else {
       if (!document.getElementById('homeCheck')) {
         dropdown.classList.remove('active');
         document.getElementById('empty').classList.remove('active');
+        document.getElementById('menuuu').classList.remove('hovver');
+        document.body.classList.remove('noScroll');
       }
     }
   }
   if (document.getElementById('aboutFrame').style.display == 'block') {
     // console.log('object');
+    document.body.classList.add('noScroll');
   }
   shootSvg(event);
 });

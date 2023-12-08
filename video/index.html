@@ -2,6 +2,12 @@
 <html>
 
 <head>
+  <meta property='og:title' content='Web3 Snapshot' />
+  <meta property='og:image' content='https://web3snapshot.io/thumbnail.jpg' />
+  <meta property='og:description' content='Clever tools for framing the future of web technology' />
+  <meta property='og:url' content='web3snapshot.io' />
+  <meta property='og:image:width' content='1200' />
+  <meta property='og:image:height' content='627' />
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
@@ -12,33 +18,145 @@
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-WK34DVZ');</script>
   <!-- End Google Tag Manager -->
-  <meta property=’og:title’ content='Web3 Snapshot' />
-  <meta property=’og:image’ content='https://web3snapshot.io/thumbnail.jpg’/>
-  <meta property=’og:description’ content=' Clever tools for framing the future of web technology' />
-  <meta property=’og:url’ content='web3snapshot.io' />
-  <meta property='og:image:width' content='1200' />
-  <meta property='og:image:height' content='627' />
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="../style.css" />
   <link rel="icon" type="image/png" href="https://www.web3snapshot.io/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <meta http-equiv="refresh" content="0; url=./home" /> -->
   <meta charset="UTF-8">
-  <title>Web3 Snapshot</title>
+  <title>Web3 Snapshot - Dashboard</title>
   <style>
-    body {
-      background-color: black;
-      margin: 0 auto;
+    @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200;400;600&display=swap');
+
+    .contImg1 {
+      background-color: #141414 !important;
+      background-image: none;
+
+    }
+
+    #contImg2 {
+      opacity: 1;
     }
   </style>
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK34DVZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="menuuu" id="menuuu">
+    <svg id="hamburger" class="Header__toggle-svg menuSvg" viewbox="0 0 60 40">
+      <g stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <path id="top-line" d="M10,10 L50,10 Z"></path>
+        <path id="middle-line" d="M10,20 L50,20 Z"></path>
+        <path id="bottom-line" d="M10,30 L50,30 Z"></path>
+      </g>
+    </svg>
+  </div>
+  <div id="header">
+    <div class="dropbtn">
+      <div id="logoSmall" style="pointer-events: none;"></div>
+    </div>
+    <div id="navBar">
+      <div class="dropdown">
 
-  <div style="padding:100% 0 0 0;position:inherit;"><iframe
-      src="https://player.vimeo.com/video/870253904?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-      frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
-      style="position:absolute;top:0;left:0;width:100%;height:100%;" title="W3s_Animatic_fast_2_1"></iframe></div>
+        <div class="dropdown-content">
+          <div class="subtitle">CLEVER TOOLS<br>FOR <span class="highlight">FRAMING</span> THE FUTURE
+            <br>OF <span class="highlight">THE INTERNET</span>
+          </div>
+          <hr size="" width="" color="">
+          <a href="../academy"> 📚 Academy <span class="flip"> 📚 </span></a>
+          <a href="../dashboard"> <span class="flip">💸</span> Dashboard 💸</span> </a>
+          <a href="../timelines">⏳ Timelines ⏳</a>
+          <a href="../video" class="selected">🎬 Video <span class="flip">🎬</span></a>
+          <hr size="" width="" color="">
+          <div class="aboutClass" onclick="openAbout()">👉 About 👈</div>
+        </div>
+      </div>
+      <div id="empty"></div>
+    </div>
+    <div class="above">🚧 work in progress 🚧</div>
+    <div id="headCont" style="position: relative; pointer-events: none;">
+      <img id="logoIconClick" src="../img/flash.svg" style="display: none"></img>
+      <canvas id="bgHead"></canvas>
+      <div class="pageTitle">
+        <h2>🎬 Video <span class="flip">🎬</span></h2>
+        <p class="subtitle faint">Work in Progress! No graphics, just text</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="contImg2" class="fullFrame">
+    <div class="video"><iframe
+        src="https://player.vimeo.com/video/870253904?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="W3s_Animatic_fast_2_1"></iframe></div>
+    <div id="gap" style="margin-top: 200px;"></div>
+  </div>
+  </div>
+  <iframe class="footerFrame" src="../footer.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+    onload="" allowtransparency="false"></iframe>
+  <button id="topBtn">&#9650;</button>
+  <iframe id="aboutFrame" class="aboutFrame" src="../about.html" frameborder="0" marginwidth="0" marginheight="0"
+    scrolling="no" onload="" allowtransparency="false"></iframe>
+  <script src="../bg.js"></script>
   <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    const needOrder = 0;
+    const containerMenu = document.querySelector('.menu');
+    const buttons = document.querySelectorAll('.btn1, .btn2, .btn3, .btn4, .btn5');
+    const folders = ['prices', 'tokenomics'];
+
+
+    function changeLink(p) {
+      window.location.href = "../" + p;
+    }
+
+    const updateEvents = (file) => {
+      // fileName = './img/' + file + '.jpg'
+      fileName = 'https://web3snapshot.loxosceles.me/' + file
+      // document.querySelector(".contImg").src = fileName;
+      document.querySelector("#objFrame").data = fileName;
+    }
+
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+
+        const file = button.classList.contains('btn1') ? folders[0] :
+          button.classList.contains('btn2') ? folders[1] :
+            button.classList.contains('btn3') ? folders[2] :
+              button.classList.contains('btn4') ? folders[3] :
+                folders[4];
+
+        // Remove the "selected" class from all buttons
+        for (const btn of buttons) {
+          btn.classList.remove('selected');
+        }
+
+        // Add the "selected" class to the clicked button
+        button.classList.add('selected');
+        updateEvents(file);
+      });
+    }
+
+    // /////////////////////////////////////////////////////////////////////////////////////////
+
+    updateEvents(folders[0]); // Run the function at page load
+    // const buttons = document.querySelectorAll('button');
+    let iframe = document.querySelector("#objFrame");
+
+    window.addEventListener('message', function (e) {
+      let message = e.data;
+      console.log(message);
+      // iframe.style = 'background: none; width: 100%;'
+      iframe.style.height = message + 'px';
+      // console.log(iframe.style)
+    }, false);
+
+
+  </script>
+  <script src="../index.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-756JPLG6F0"></script>
   <script>
@@ -48,7 +166,6 @@
 
     gtag('config', 'G-756JPLG6F0');
   </script>
-
 </body>
 
 </html>
